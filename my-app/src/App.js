@@ -1,27 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-import AboutMe from './pages/AboutMe/AboutMe';
-import Home from './pages/Home/Home';
-import Navbar from './Navbar/Navbar';
+
+import Navbar_ from './Navbar/Navbar_';
+import "bootstrap/dist/css/bootstrap.min.css";
+import AnimateRoutes from './components/AnimateRoutes';
+
 
 import {
   BrowserRouter as Router,
-  Route,
   Routes,
-  Switch,
-  Link
+  useLocation,
 } from 'react-router-dom';
 
 function App() {
+
   return (
     <Router>
     <div>
+      <Navbar_/>
       <main>
-      <Navbar/>
-      <Routes>
-          <Route element={<Home />} path={'/'}></Route>
-          <Route element={<AboutMe />} path={'/AboutMe'}></Route>
-      </Routes>
+        <AnimateRoutes/>
       </main>
     </div>
   </Router>
