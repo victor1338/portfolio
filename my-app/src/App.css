@@ -40,6 +40,9 @@
 .Nav-link {
   text-decoration: none;
   color :black;
+  margin:0.1%;
+  text-align: center;
+  width:100px;
 }
 
 .page_container{
