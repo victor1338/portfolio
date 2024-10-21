@@ -48,15 +48,6 @@ function Mtg() {
     <h1> {Card}</h1>
     <img src={Cardimg}/>
 
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Search your card</Form.Label>
-        <Form.Control type="card" placeholder="Enter card name" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Search
-      </Button>
-    </Form>
   </motion.div>
   )
 };
