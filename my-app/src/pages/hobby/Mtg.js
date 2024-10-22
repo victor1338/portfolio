@@ -13,6 +13,7 @@ function Mtg() {
   const [Cardimg,setCardimg]=useState(null);
   const [CardName,setCardName]=useState("");
   const [CardList,setCardList]=useState([]);
+  const [Result,setResult]=useState([]);
 
 
   useEffect(()=>{
@@ -44,17 +45,42 @@ function Mtg() {
 
 
   const handleInput = (e,Newvalue)=> {
-    e.preventDefault();
     setCardName(Newvalue);
-    console.log(CardName);
-    fetch_mtg_data();
+    fetch_mtg_datalist();
   }
 
-  const fetch_mtg_data =()=>{
-    if(CardName!==null){
-      if (CardName.includes(" ")){
-        setCardName(CardName.replace(" ","+"));}}
-    fetch("https://api.scryfall.com/cards/autocomplete?q="+CardName)
+  async function handleChange (e,value){
+    fetch_mtg_data(value);
+  }
+
+  const fetch_mtg_data =(value)=>{
+    console.log(value);
+    if(value!==null){
+      if (value.includes(" ")){
+        value= value.replaceAll(" ","+");}}
+    fetch("https://api.scryfall.com/cards/named?exact="+ value)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      setResult(data);
+      console.log(Result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    })
+  }
+
+  const fetch_mtg_datalist =()=>{
+    let name = CardName;
+    if(name!==null){
+      if (name.includes(" ")){
+        name= name.replaceAll(" ","+");}}
+    fetch("https://api.scryfall.com/cards/autocomplete?q="+ name)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -72,17 +98,19 @@ function Mtg() {
   }
 
   return(
-  <motion.div >
+  <motion.div>
     <h1 > {Card}</h1>
     <img src={Cardimg}/>
     <Autocomplete
-      disablePortal
+      value={CardName}
       options={CardList}
       sx={{ width: 300 }}
       onInputChange={handleInput}
+      onChange={handleChange}
       renderInput={(params) => <TextField {...params} label="Card" />}
     />
-    {CardName}
+    {Result.name}
+    {Result.oracle_text}
   </motion.div>
 
  
