@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import {motion} from "framer-motion";
 import { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
@@ -34,6 +32,20 @@ function Mtg() {
     .catch(error => {
       console.error('Error:', error);
     }); 
+    fetch("https://api.scryfall.com/symbology")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    }); 
+
     },[]
   )
 
@@ -46,10 +58,10 @@ function Mtg() {
 
   const handleInput = (e,Newvalue)=> {
     setCardName(Newvalue);
-    fetch_mtg_datalist();
+    fetch_mtg_datalist(Newvalue);
   }
 
-  async function handleChange (e,value){
+  const handleChange= (e,value)=>{
     fetch_mtg_data(value);
   }
 
@@ -58,6 +70,7 @@ function Mtg() {
     if(value!==null){
       if (value.includes(" ")){
         value= value.replaceAll(" ","+");}}
+
     fetch("https://api.scryfall.com/cards/named?exact="+ value)
     .then(response => {
       if (!response.ok) {
@@ -75,12 +88,12 @@ function Mtg() {
     })
   }
 
-  const fetch_mtg_datalist =()=>{
-    let name = CardName;
-    if(name!==null){
-      if (name.includes(" ")){
-        name= name.replaceAll(" ","+");}}
-    fetch("https://api.scryfall.com/cards/autocomplete?q="+ name)
+  const fetch_mtg_datalist =(value)=>{
+    
+    if(value!==null){
+      if (value.includes(" ")){
+        value= value.replaceAll(" ","+");}}
+    fetch("https://api.scryfall.com/cards/autocomplete?q="+ value)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -109,7 +122,7 @@ function Mtg() {
       onChange={handleChange}
       renderInput={(params) => <TextField {...params} label="Card" />}
     />
-    {Result.name}
+    {Result.name}<br/>
     {Result.oracle_text}
   </motion.div>
 
