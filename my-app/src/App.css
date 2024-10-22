@@ -42,18 +42,21 @@
   color :black;
   margin:0.1%;
   text-align: center;
-  width:100px;
+  width:80px;
 }
 
-.page_container{
-  position: relative;
+#home{
   height: 100vh;
   border: 2px solid #006100;
+  width:100vh;
+  text-align: center;
 }
 
-.centered-element {
+
+
+#center {
   margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  top: 50vh;
+  
 }
