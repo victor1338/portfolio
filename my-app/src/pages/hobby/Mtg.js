@@ -15,10 +15,11 @@ function Mtg() {
   const [CardList,setCardList]=useState([]);
   const [Result,setResult]=useState([]);
   const [Loading,setLoading]=useState(true);
+  const [init,Setinit]=useState(true);
 
 
   useEffect(()=>{
-    setLoading(true);
+    Setinit(true);
     console.log("test_useEffect");
     const init=async()=>
     {await fetch("https://api.scryfall.com/cards/random")
@@ -50,7 +51,7 @@ function Mtg() {
             .catch(error => {
               console.error('Error:', error);
             }); 
-            setLoading(false);
+            Setinit(false);
       }
       init();
 
@@ -122,7 +123,7 @@ function Mtg() {
     setLoading(false);
   }
 
-  if (Loading){
+  if (init){
     return (<CircularProgress color="inherit" size={100} /> )
   }
   else{
@@ -161,9 +162,7 @@ function Mtg() {
           </Row>
         </Container>
     
-        
-        {Result.name}<br/>
-        {Result.oracle_text}
+      
       </motion.div>
     
      
