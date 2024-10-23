@@ -60,3 +60,9 @@
   top: 50vh;
   
 }
+
+#project {
+  margin:auto;
+  position : relative;
+  top: 30vh;
+}

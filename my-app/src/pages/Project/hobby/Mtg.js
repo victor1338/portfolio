@@ -13,8 +13,8 @@ function Mtg() {
   const [Cardimg,setCardimg]=useState(null);
   const [CardName,setCardName]=useState("");
   const [CardList,setCardList]=useState([]);
-  const [Result,setResult]=useState([]);
-  const [Loading,setLoading]=useState(true);
+  const [Result,setResult]=useState({ "image_uris": {"normal":""}});
+  const [Loading,setLoading]=useState(false);
   const [init,Setinit]=useState(true);
 
 
@@ -124,17 +124,31 @@ function Mtg() {
   }
 
   if (init){
-    return (<CircularProgress color="inherit" size={100} /> )
+    return (
+    <motion.div initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}}>
+      <Container id='project'>
+        <Row className="justify-content-md-center">
+          <Col md="auto">
+            <CircularProgress color="inherit" size={100}/> 
+          </Col>  
+        </Row>
+
+      </Container>
+    </motion.div>
+    )
   }
   else{
     return(
-      <motion.div>
-        <Container>
+      <motion.div initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}}>
+        <Container className='d-grid gap-3'>
           <Row>
             <h1 > {Card}</h1>
           </Row>
+          <Row className="justify-content-md-center">
+            <Col md="auto"> <img src={Cardimg}/> </Col>
+          </Row>
           <Row>
-           <img src={Cardimg}/>
+            Search For a Card
           </Row>
           <Row>
             <Autocomplete
@@ -143,7 +157,7 @@ function Mtg() {
             sx={{ width: 300 }}
             onInputChange={handleInput}
             onChange={handleChange}
-            renderInput={(params) => <TextField {...params} label="Card" slotProps={{
+            renderInput={(params) => <TextField {...params} label="Search Card Card" slotProps={{
                 input: {
                   ...params.InputProps,
                   endAdornment: (
@@ -159,6 +173,9 @@ function Mtg() {
           <Row>
           {Result.name}<br/>
           {Result.oracle_text}
+          </Row>
+          <Row className="justify-content-md-center">
+          <Col md="auto"><img src={Result.image_uris.normal} defaultValue={""}/></Col>
           </Row>
         </Container>
     

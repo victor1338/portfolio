@@ -6,7 +6,8 @@ import {
   } from 'react-router-dom';
 import AboutMe from '../pages/AboutMe/AboutMe';
 import Home from "../pages/Home/Home";
-import Mtg from "../pages/hobby/Mtg";
+import Mtg from "../pages/Project/hobby/Mtg";
+import Projects from "../pages/Project/Project";
 import {AnimatePresence} from "framer-motion";
 
 function AnimateRoutes(){
@@ -16,7 +17,8 @@ function AnimateRoutes(){
         <Routes location={location} key={location.pathname}>
           <Route element={<Home />} path={'/'}></Route>
           <Route element={<AboutMe />} path={'/AboutMe'}></Route>
-          <Route element={<Mtg />} path={'/Mtg'}></Route>
+          <Route element={<Mtg />} path={'/Project/Mtg'}></Route>
+          <Route element={<Projects />} path={'/Project'}></Route>
         </Routes>
         </AnimatePresence>
             )
