@@ -53,6 +53,11 @@
 }
 
 
+#aboutme{
+  margin:auto;
+  position : relative;
+  top: 20vh;
+}
 
 #center {
   margin: 0;

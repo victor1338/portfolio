@@ -14,7 +14,7 @@ const Projects=()=>{
                 <Row >
                     <Col>
                     <Link to="/Project/Mtg" className='Nav-link'><h3>Search for a mtg card</h3><br/>
-                                                        <p>A project the fetch data from Scryfall with API call</p></Link>
+                                                        <p>A project fetch the data from Scryfall with API call</p></Link>
                     </Col>
                     <Col>Project 2</Col>
                 </Row>

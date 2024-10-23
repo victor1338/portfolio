@@ -10,7 +10,7 @@ function AboutMe() {
 
   return(
   <motion.div initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}} >
-    <Container>
+    <Container id='aboutme'>
       <Row>
         <Col>
           <h1>About Me</h1>
@@ -18,7 +18,12 @@ function AboutMe() {
       </Row>
       <Row>
         <Col>
-          <strong>Victor Lee</strong>
+          <strong>This is Victor, graduated from the The Chinese University of Hong Kong</strong>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <p>Hello! I’m a newcomer to the world of data science, driven by a strong curiosity about how data can shape our understanding of the world. Although I’m just starting my journey, I am eager to learn and explore the vast possibilities this field has to offer.</p>
         </Col>
       </Row>
 

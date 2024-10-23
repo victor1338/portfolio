@@ -157,7 +157,7 @@ function Mtg() {
             sx={{ width: 300 }}
             onInputChange={handleInput}
             onChange={handleChange}
-            renderInput={(params) => <TextField {...params} label="Search Card Card" slotProps={{
+            renderInput={(params) => <TextField {...params} label="Search Card" slotProps={{
                 input: {
                   ...params.InputProps,
                   endAdornment: (
