@@ -59,7 +59,7 @@ function Curd(){
   
   const onFormSubmit = (e)=>{
     e.preventDefault();
-    const username = document.getElementById("username").value;
+    const username = document.getElementById("Comment").value;
    post(username)
   }
 
@@ -78,10 +78,10 @@ function Curd(){
   return(
     <motion.div initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}}>
       <div style={{ width: '30%', margin: '1% 40%', position:"relative", }}>
-      <p>You can click the user to view its detail information</p>
+      <p>You can click the comment to view its detail information</p>
       <Form onSubmit={onFormSubmit}>
-          <Form.Label>User name</Form.Label>
-          <Form.Control id="username" type="username" placeholder="Enter name" />
+          <Form.Label>Leave your Comment here</Form.Label>
+          <Form.Control id="Comment" type="username" placeholder="Enter name" />
         <Button variant="primary"  type='submit'>
           Submit
         </Button>
