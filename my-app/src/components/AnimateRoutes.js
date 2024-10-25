@@ -24,7 +24,7 @@ function AnimateRoutes(){
           <Route element={<Projects />} path={'/Project'}></Route>
           <Route element={<Test />} path={'/Test'}></Route>
           <Route element={<User/> } path={"/User/:userID"} ></Route>
-          <Route element={<Curd/> } path={"/Crud"} ></Route>
+          <Route element={<Curd/> } path={"/Curd"} ></Route>
         </Routes>
         </AnimatePresence>
             )

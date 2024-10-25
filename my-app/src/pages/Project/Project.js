@@ -17,7 +17,7 @@ const Projects=()=>{
                                                         <p>A project fetch the data from Scryfall with API call</p></Link>
                     </Col>
                     <Col>
-                    <Link to="/Crud" className='Nav-link'><h3>Crud function test</h3><br/>
+                    <Link to="/Curd" className='Nav-link'><h3>Crud function test</h3><br/>
                                                         <p>A page to test if backend works</p></Link>
                     </Col>
                 </Row>
