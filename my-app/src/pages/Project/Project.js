@@ -22,7 +22,8 @@ const Projects=()=>{
                     </Col>
                 </Row>
                 <Row>
-                    <Col>Project 3</Col>
+                    <Col> <Link to="/Digit" className='Nav-link'><h3>Digit Recognition</h3><br/>
+                                                        <p>A trained neural network to recongize hand writing digit</p></Link></Col>
                     <Col>Project 4</Col>
                 </Row>
             </Container>

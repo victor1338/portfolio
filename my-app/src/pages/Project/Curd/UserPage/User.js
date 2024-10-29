@@ -52,7 +52,6 @@ function User (props)  {
 
     }
     const put=async (comment)=>{
-        setloading(true)
         await fetch("http://127.0.0.1:8000/test_app/"+user.my_id+"/",{method:"PUT", body:JSON.stringify({ username: comment }),headers: {"Content-Type": "application/json",}})
           .then(response => {
               if (!response.ok) {
@@ -96,7 +95,7 @@ function User (props)  {
                         <Card.Text>
                             Create date: {user.create.substring(0, 10)}
                         </Card.Text>
-                        <Button variant="danger" onClick={handleDelete}>Delete User</Button>
+                        <Button variant="danger" onClick={handleDelete}>Delete comment</Button>
                     </Card.Body>
                 </Card>
                 <Form onSubmit={onFormSubmit}>

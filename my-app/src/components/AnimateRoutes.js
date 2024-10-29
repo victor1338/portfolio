@@ -11,6 +11,7 @@ import Projects from "../pages/Project/Project";
 import Test from "../pages/Test/Test";
 import User from "../pages/Project/Curd/UserPage/User"
 import Curd from "../pages/Project/Curd/Curd";
+import Digit from "../pages/Project/Digit/Digit"
 import {AnimatePresence} from "framer-motion";
 
 function AnimateRoutes(){
@@ -25,6 +26,7 @@ function AnimateRoutes(){
           <Route element={<Test />} path={'/Test'}></Route>
           <Route element={<User/> } path={"/User/:userID"} ></Route>
           <Route element={<Curd/> } path={"/Curd"} ></Route>
+          <Route element={<Digit/> } path={"/Digit"} ></Route>
         </Routes>
         </AnimatePresence>
             )
