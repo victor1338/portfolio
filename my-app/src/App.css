@@ -7,10 +7,21 @@
   pointer-events: none;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+body {
+  font-family: 'League Spartan', cursive;
+  height: 95vh;
+  background: url("./image/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: left;
 }
 
 .App-header {
@@ -42,14 +53,20 @@
   color :black;
   margin:0.1%;
   text-align: center;
-  width:80px;
+  width: 5vw;
+
 }
 
-#home{
-  height: 100vh;
-  border: 2px solid #006100;
-  width:100vh;
-  text-align: center;
+.home{
+  height: 95vh;
+  background: url("./image/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: left;
+}
+
+#smol{
+  font-size: 4vw;
 }
 
 
@@ -59,17 +76,33 @@
   top: 20vh;
 }
 
-#center {
+#center-vertical {
   margin: 0;
   position: relative;
-  top: 50vh;
+  top: 15vh;
   
 }
 
 #project {
   margin:auto;
   position : relative;
-  top: 30vh;
+  top: 25vh;
+}
+
+#project-card{
+  text-decoration: none;
+  text-align: center;
+  height:15vh;
+  width:65%;
+  margin-left:15%;
+}
+
+#project-block{
+  position:'relative';
+  margin-top:5%}
+
+p#aboutmetext{
+  font-size: 2vw;
 }
 
 .Sign-container{
@@ -82,4 +115,16 @@
 .sigCanvas{
   width: 20vw; 
   height: 20vw
+}
+
+h1{
+  font-size: 7.5vw;
+}
+
+p#center-vertical{
+  font-size: 2.5vw;
+}
+
+.digit p{
+  font-size: 2rem;
 }

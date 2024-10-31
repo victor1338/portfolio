@@ -7,13 +7,14 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 function Mtg() {
-  const [Card,setCard]=useState(null);
-  const [Cardimg,setCardimg]=useState(null);
-  const [CardName,setCardName]=useState("");
-  const [CardList,setCardList]=useState([]);
-  const [Result,setResult]=useState({ "image_uris": {"normal":""}});
+  const [Cardmtg,setCard]=useState(" ");
+  const [Cardimg,setCardimg]=useState(" ");
+  const [CardName,setCardName]=useState(" ");
+  const [CardList,setCardList]=useState([" "]);
+  const [Result,setResult]=useState({ "image_uris": {"normal":""},"oracle_text":"Search your card"});
   const [Loading,setLoading]=useState(false);
   const [init,Setinit]=useState(true);
 
@@ -139,47 +140,48 @@ function Mtg() {
   }
   else{
     return(
-      <motion.div initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}}>
-        <Container className='d-grid gap-3'>
-          <Row>
-            <h1 > {Card}</h1>
-          </Row>
-          <Row className="justify-content-md-center">
-            <Col md="auto"> <img src={Cardimg}/> </Col>
-          </Row>
-          <Row>
-            Search For a Card
-          </Row>
-          <Row>
-            <Autocomplete
-            value={CardName}
-            options={CardList}
-            sx={{ width: 300 }}
-            onInputChange={handleInput}
-            onChange={handleChange}
-            renderInput={(params) => <TextField {...params} label="Search Card" slotProps={{
-                input: {
-                  ...params.InputProps,
-                  endAdornment: (
-                    <React.Fragment>
-                      {Loading ? <CircularProgress color="inherit" size={20} /> : null}
-                      {params.InputProps.endAdornment}
-                    </React.Fragment>
-                  ),
-                },
-              }}/>}
-            />
-          </Row>
-          <Row>
-          {Result.name}<br/>
-          {Result.oracle_text}
-          </Row>
-          <Row className="justify-content-md-center">
-          <Col md="auto"><img src={Result.image_uris.normal} defaultValue={""}/></Col>
-          </Row>
-        </Container>
-    
-      
+      <motion.div initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}} >
+          <Container className='d-grid gap-3' style={{position:"relative",top: "5vh",width:"60%"}}>
+            <Row>
+              <Col><h2>A random card: </h2></Col>
+            </Row>
+            <Row  className="justify-content-md-center">
+              <Card style={{width:'50%'}}>
+                <Card.Img  variant="top" src={Cardimg} />
+                <Card.Title>{Cardmtg}</Card.Title>
+              </Card>
+            </Row>
+            <Row>
+              <h2>Search For a Card</h2>
+            </Row>
+            <Row>
+              <Autocomplete              
+              value={CardName}
+              options={CardList}
+              sx={{ width: 300 }}
+              onInputChange={handleInput}
+              onChange={handleChange}
+              renderInput={(params) => <TextField {...params} style={{backgroundColor:"white"}} label="Search Card" slotProps={{
+                  input: {
+                    ...params.InputProps,
+                    endAdornment: (
+                      <React.Fragment>
+                        {Loading ? <CircularProgress color="inherit" size={20} /> : null}
+                        {params.InputProps.endAdornment}
+                      </React.Fragment>
+                    ),
+                  },
+                }}/>}
+              />
+            </Row>
+            <Row className="justify-content-md-center">
+              <Card style={{width:'50%'}}>
+                  <Card.Img  variant="top" src={Result.image_uris.normal} />
+                  <Card.Title>{Result.name}</Card.Title>
+                  <Card.Body> {Result.oracle_text}</Card.Body>
+              </Card>           
+            </Row>
+          </Container>      
       </motion.div>
     
      

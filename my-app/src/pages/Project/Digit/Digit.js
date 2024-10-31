@@ -38,11 +38,14 @@ function Digit(){
     return(
         <motion.div initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}} >
         <div style={{ width: '30%', margin: '1% 35%', position:"relative", }}>
-            <Container>
+            <Container className='digit'>
                 <Row>
                     <Col>
-                        <h1>Digit Recognition</h1>
+                        <h2>Digit Recognition</h2>
                     </Col>
+                </Row>
+                <Row>
+                    <p><strong>Write a digit and click "regconise"</strong></p>
                 </Row>
                 <Row>
                     <Col>
@@ -58,12 +61,17 @@ function Digit(){
                         
                     </Col>
                 </Row>
+                <Row>
                     <Col>
                         <Button variant="primary"  onClick={clear}>Clear  </Button>
+                    </Col>
+                    <Col>
                         <Button onClick={handleRecongnise}> Recognise</Button>
                     </Col>
+                </Row>
+
                 <Row>
-                    <Col>Prediction:{number}</Col> <Col>Confidence:{prob.substring(2,4)}.{prob.substring(4,6)}%</Col>
+                    <Col><p>Prediction:{number}</p></Col> <Col><p>Confidence:{prob.substring(2,4)}.{prob.substring(4,6)}%</p></Col>
                 </Row>
                 <Row>
                     <p>There are some inaccuracy due to the input are not pure hand writing</p>

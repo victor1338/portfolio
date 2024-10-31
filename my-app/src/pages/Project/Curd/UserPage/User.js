@@ -99,7 +99,7 @@ function User (props)  {
                     </Card.Body>
                 </Card>
                 <Form onSubmit={onFormSubmit}>
-                    <Form.Label>Change comment</Form.Label>
+                    <Form.Label><strong>Change comment</strong></Form.Label>
                     <Form.Control id="comment" type="username" placeholder="Change the comment" />
                     <Button variant="primary"  type='submit'>
                     Submit

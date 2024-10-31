@@ -76,9 +76,9 @@ function Curd(){
   return(
     <motion.div initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}}>
       <div style={{ width: '30%', margin: '1% 40%', position:"relative", }}>
-      <p>You can click the comment to view its detail information</p>
+      <strong>You can click the comment to view its detail information</strong>
       <Form onSubmit={onFormSubmit}>
-          <Form.Label>Leave your Comment here</Form.Label>
+          <Form.Label><strong>Leave your Comment here</strong></Form.Label>
           <Form.Control id="Comment" type="username" placeholder="Enter name" />
         <Button variant="primary"  type='submit'>
           Submit
