@@ -19,7 +19,7 @@ function AnimateRoutes(){
     return(
         <AnimatePresence initial={false}>
         <Routes location={location} key={location.pathname}>
-          <Route element={<Home />} path={'/'}></Route>
+          <Route element={<Home />} path={'/portfolio'}></Route>
           <Route element={<AboutMe />} path={'/AboutMe'}></Route>
           <Route element={<Mtg />} path={'/Project/Mtg'}></Route>
           <Route element={<Projects />} path={'/Project'}></Route>
