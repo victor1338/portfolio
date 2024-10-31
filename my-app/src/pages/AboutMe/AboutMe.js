@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import "../../App.css";
 
 function AboutMe() {
 
@@ -13,7 +14,7 @@ function AboutMe() {
     <Container id='aboutme' className='d-grid gap-3'>
       <Row>
         <Col>
-          <h1>About Me</h1>
+          <h1 id='header'>About Me</h1>
         </Col>
       </Row>
       <Row>

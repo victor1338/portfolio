@@ -117,8 +117,8 @@ p#aboutmetext{
   height: 20vw
 }
 
-h1{
-  font-size: 7.5vw;
+h1#header{
+  font-size: 6vw;
 }
 
 p#center-vertical{

@@ -9,7 +9,7 @@ const Home = () => (
         <Container >
         <Row>
         <Col >
-        <p id='center-vertical'><h1>Victor Lee</h1> <br/>
+        <p id='center-vertical'><h1 id="header">Victor Lee</h1> <br/>
         <smol id="smol">Hi there! </smol> 
         This is a page for storing my own works, feel free to try it out!
         </p>
