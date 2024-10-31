@@ -8,7 +8,7 @@ import "../App.css";
 const Navbar_ =() =>(
 <Navbar style={{height:"5vh"}} className="bg-body-tertiary"  expand="lg">
     <Container>
-      <Navbar.Brand as={Link} to="/" >Home</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/portfolio" >Home</Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
         <Link to="/AboutMe" className='Nav-link'>About Me</Link>
