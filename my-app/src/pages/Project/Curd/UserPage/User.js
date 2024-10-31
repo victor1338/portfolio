@@ -52,7 +52,7 @@ function User (props)  {
 
     }
     const put=async (comment)=>{
-        await fetch("http://127.0.0.1:8000/test_app/"+user.my_id+"/",{method:"PUT", body:JSON.stringify({ username: comment }),headers: {"Content-Type": "application/json",}})
+        await fetch("http://127.0.0.1:8000/test_app/"+user.my_id+"/",{method:"PATCH", body:JSON.stringify({ username: comment }),headers: {"Content-Type": "application/json",}})
           .then(response => {
               if (!response.ok) {
               throw new Error('Network response was not ok');

@@ -1,9 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import {motion} from "framer-motion";
-import ListGroup from 'react-bootstrap/ListGroup';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate} from "react-router-dom";
-import {Link} from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/Row';

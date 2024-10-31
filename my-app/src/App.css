@@ -71,3 +71,15 @@
   position : relative;
   top: 30vh;
 }
+
+.Sign-container{
+  border-style: solid;
+  border-width: 1px;
+  width: 20vw;
+  height: 20vw;
+}
+
+.sigCanvas{
+  width: 20vw; 
+  height: 20vw
+}
