@@ -13,15 +13,12 @@ import {
 } from 'react-router-dom';
 
 function App() {
-
   return (
     <Router>
-    <div>
       <Navbar_/>
       <main>
         <AnimateRoutes/>
       </main>
-    </div>
   </Router>
   );
 }

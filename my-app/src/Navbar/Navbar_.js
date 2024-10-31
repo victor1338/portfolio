@@ -6,12 +6,13 @@ import Container from 'react-bootstrap/Container';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 const Navbar_ =() =>(
-<Navbar className="bg-body-tertiary"  expand="lg">
+<Navbar style={{height:"5vh"}} className="bg-body-tertiary"  expand="lg">
     <Container>
       <Navbar.Brand as={Link} to="/" >Home</Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
         <Link to="/AboutMe" className='Nav-link'>About Me</Link>
+        <Link to="/Project" className='Nav-link'>Works</Link>
       </Nav>
       </Navbar.Collapse>
     </Container>
