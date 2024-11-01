@@ -18,7 +18,7 @@ function User (props)  {
         init();
     },[])
     const init=async()=>{
-        await fetch("http://127.0.0.1:8000/test_app/"+userID)
+        await fetch("http://web-production-a96f.up.railway.app/test_app/"+userID)
             .then(response => {
                 if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -37,7 +37,7 @@ function User (props)  {
         }
     async function handleDelete(){
         try{        
-            await fetch("http://127.0.0.1:8000/test_app/"+user.my_id+"/", {method: "DELETE",headers: { "content-type": "application/json", }})
+            await fetch("http://web-production-a96f.up.railway.app/test_app/"+user.my_id+"/", {method: "DELETE",headers: { "content-type": "application/json", }})
             .then((response)=>{
                 if (response.status===404){
                     navigate(-1)
@@ -52,7 +52,7 @@ function User (props)  {
 
     }
     const put=async (comment)=>{
-        await fetch("http://127.0.0.1:8000/test_app/"+user.my_id+"/",{method:"PATCH", body:JSON.stringify({ username: comment }),headers: {"Content-Type": "application/json",}})
+        await fetch("http://web-production-a96f.up.railway.app/test_app/"+user.my_id+"/",{method:"PATCH", body:JSON.stringify({ username: comment }),headers: {"Content-Type": "application/json",}})
           .then(response => {
               if (!response.ok) {
               throw new Error('Network response was not ok');

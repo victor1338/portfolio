@@ -19,7 +19,7 @@ function Digit(){
     const handleRecongnise=async ()=>{
         const url= sigPad.getCanvas().toDataURL('image/png');
         console.log(url)
-        await fetch("http://127.0.0.1:8000/Digit/",{ method:"POST",body:JSON.stringify({"imageUrl":{url}}),headers: {"Content-Type": "multipart/form-data",} } )
+        await fetch("http://web-production-a96f.up.railway.app/Digit/",{ method:"POST",body:JSON.stringify({"imageUrl":{url}}),headers: {"Content-Type": "multipart/form-data",} } )
                 .then(response => {
                     if (!response.ok) {
                     throw new Error('Network response was not ok');
