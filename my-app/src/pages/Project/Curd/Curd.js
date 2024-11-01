@@ -20,7 +20,7 @@ function Curd(){
   },[])
 
   const init=async ()=>{
-    await fetch("http://web-production-a96f.up.railway.app/test_app/")
+    await fetch("https://web-production-a96f.up.railway.app/test_app/")
       .then(response => {
           if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -38,7 +38,7 @@ function Curd(){
 
   const post=async (Username)=>{
     setloading(true)
-    await fetch("http://web-production-a96f.up.railway.app/test_app/",{method:"POST", body:JSON.stringify({ username: Username }),headers: {"Content-Type": "application/json",}})
+    await fetch("https://web-production-a96f.up.railway.app/test_app/",{method:"POST", body:JSON.stringify({ username: Username }),headers: {"Content-Type": "application/json",}})
       .then(response => {
           if (!response.ok) {
           throw new Error('Network response was not ok');
