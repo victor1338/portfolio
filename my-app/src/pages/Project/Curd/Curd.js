@@ -9,9 +9,9 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import { dev,deploy } from '../../../network';
 function Curd(){
-  const[userList,SetuserList]= useState([]);
+  const[commentList,SetcommentList]= useState([]);
   const[load,setloading]=useState(true);
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ function Curd(){
   },[])
 
   const init=async ()=>{
-    await fetch("https://web-production-a96f.up.railway.app/test_app/")
+    await fetch(dev+"/comment/")
       .then(response => {
           if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -28,7 +28,7 @@ function Curd(){
           return response.json();
       })
       .then(data => {
-          SetuserList(data);
+          SetcommentList(data);
       })
       .catch(error => {
           console.error('Error:', error);
@@ -36,29 +36,32 @@ function Curd(){
       setloading(false);
   }
 
-  const post=async (Username)=>{
+  const post=(Commentname)=>{
+    var now = new Date();
+    var isoString = now.toISOString();
     setloading(true)
-    await fetch("https://web-production-a96f.up.railway.app/test_app/",{method:"POST", body:JSON.stringify({ username: Username }),headers: {"Content-Type": "application/json",}})
+    fetch(dev+"/comment/",{method:"POST", body:JSON.stringify({ comment: Commentname , update :isoString}),headers: {"Content-Type": "application/json",}})
       .then(response => {
           if (!response.ok) {
           throw new Error('Network response was not ok');
           }
+          init()
           return response.json();
       })
       .catch(error => {
           console.error('Error:', error);
       }); 
-      init()
+
   }
 
-  const handleOnClick = (userid) => {
-      navigate("/User/"+userid)
+  const handleOnClick = (id) => {
+      navigate("/comment/"+id)
     }
   
   const onFormSubmit = (e)=>{
     e.preventDefault();
-    const username = document.getElementById("Comment").value;
-   post(username)
+    const comment = document.getElementById("Comment").value;
+   post(comment)
   }
 
   if(load){
@@ -79,7 +82,7 @@ function Curd(){
       <strong>You can click the comment to view its detail information</strong>
       <Form onSubmit={onFormSubmit}>
           <Form.Label><strong>Leave your Comment here</strong></Form.Label>
-          <Form.Control id="Comment" type="username" placeholder="Enter name" />
+          <Form.Control id="Comment" type="comment" placeholder="Enter name" />
         <Button variant="primary"  type='submit'>
           Submit
         </Button>
@@ -93,11 +96,11 @@ function Curd(){
         </tr>
       </thead>
       <tbody>
-        {userList.map((user) => (
-                  <tr key={user}  onClick={()=>handleOnClick(user.my_id)}>
-                    <td>{user.my_id}</td>
-                    <td>{user.username}</td>
-                    <td>{user.create.substring(0, 10)}</td>
+        {commentList.map((comment) => (
+                  <tr key={comment.id}  onClick={()=>handleOnClick(comment.id)}>
+                    <td>{comment.id}</td>
+                    <td>{comment.comment}</td>
+                    <td>{comment.create.substring(0, 10)}</td>
                   </tr>  
         ))}
       </tbody>

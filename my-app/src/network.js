@@ -1,0 +1,1 @@
+export const dev= "http://127.0.0.1:8000", deploy ='https://web-production-a96f.up.railway.app'

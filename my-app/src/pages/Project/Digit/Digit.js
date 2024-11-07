@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import "../../../App.css"
+import { dev,deploy } from '../../../network';
 function Digit(){
     const [number,Setnumber] = useState("");
     const [prob,Setprob] = useState("");
@@ -19,7 +20,7 @@ function Digit(){
     const handleRecongnise=async ()=>{
         const url= sigPad.getCanvas().toDataURL('image/png');
         console.log(url)
-        await fetch("https://web-production-a96f.up.railway.app/Digit/",{ method:"POST",body:JSON.stringify({"imageUrl":{url}}),headers: {"Content-Type": "multipart/form-data",} } )
+        await fetch(dev+"/Digit/",{ method:"POST",body:JSON.stringify({"imageUrl":{url}}),headers: {"Content-Type": "multipart/form-data",} } )
                 .then(response => {
                     if (!response.ok) {
                     throw new Error('Network response was not ok');

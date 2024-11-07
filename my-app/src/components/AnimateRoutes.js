@@ -24,7 +24,7 @@ function AnimateRoutes(){
           <Route element={<Mtg />} path={'/Project/Mtg'}></Route>
           <Route element={<Projects />} path={'/Project'}></Route>
           <Route element={<Test />} path={'/Test'}></Route>
-          <Route element={<User/> } path={"/User/:userID"} ></Route>
+          <Route element={<User/> } path={"/comment/:commentID"} ></Route>
           <Route element={<Curd/> } path={"/Curd"} ></Route>
           <Route element={<Digit/> } path={"/Digit"} ></Route>
         </Routes>
