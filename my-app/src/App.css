@@ -16,12 +16,12 @@
 }
 
 body {
-  font-family: 'League Spartan', cursive;
-  height: 95vh;
-  background: url("./image/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-align: left;
+  font-family: 'League Spartan', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
 .App-header {
@@ -57,12 +57,15 @@ body {
 
 }
 
-.home{
-  height: 95vh;
-  background: url("./image/background.jpg");
+.home {
+  min-height: 95vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("./image/background.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  text-align: left;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #smol{
@@ -97,9 +100,15 @@ body {
   margin-left:15%;
 }
 
-#project-block{
-  position:'relative';
-  margin-top:5%}
+.project-card-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.project-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
 
 p#aboutmetext{
   font-size: 2vw;

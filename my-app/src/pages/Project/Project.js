@@ -10,42 +10,46 @@ import { Link } from 'react-router-dom';
 const Projects=()=>{
 
     return (
-        <motion.div style={{height:'95vh'}} initial={ {opacity:0} } animate={{opacity:1}} transition={{duration:1}}>
-            <Container className='d-grid gap-3' id='project'>
-                <Row  >
-                    <Col>
-                        <Card  as={Link} to="/Project/Mtg" id='project-card'>
-                            <div id ='project-block'>
-                            <Card.Title>Search for a mtg card</Card.Title>
-                            <Card.Body>A project fetch the data from Scryfall with API call</Card.Body>
-                            </div>
+        <motion.div className="min-vh-100 bg-light py-5" initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1}}>
+            <Container className="py-5">
+                <div className="text-center mb-5">
+                    <h2 className="display-4 fw-bold">My Projects</h2>
+                    <p className="lead text-muted">Here are some of the things I've been working on.</p>
+                </div>
+                <Row className="g-4">
+                    <Col md={6} lg={6}>
+                        <Card as={Link} to="/Project/Mtg" className="h-100 shadow-sm text-decoration-none border-0 project-card-hover">
+                            <Card.Body className="d-flex flex-column justify-content-center text-center p-5">
+                                <Card.Title className="fs-3 mb-3 fw-bold text-dark">Search for a MTG card</Card.Title>
+                                <Card.Text className="text-muted fs-5">A project fetching data from Scryfall with an API call</Card.Text>
+                            </Card.Body>
                         </Card>                                                      
                     </Col>
 
-                    <Col>
-                        <Card id='project-card' to="/Curd" as={Link}>
-                            <div id='project-block'>
-                            <Card.Title>Crud function test</Card.Title>
-                            <Card.Body>A page to test if backend works</Card.Body>
-                            </div>
+                    <Col md={6} lg={6}>
+                        <Card as={Link} to="/Curd" className="h-100 shadow-sm text-decoration-none border-0 project-card-hover">
+                            <Card.Body className="d-flex flex-column justify-content-center text-center p-5">
+                                <Card.Title className="fs-3 mb-3 fw-bold text-dark">CRUD function test</Card.Title>
+                                <Card.Text className="text-muted fs-5">A page to test if the backend works correctly</Card.Text>
+                            </Card.Body>
                         </Card>
                     </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Card as={Link} to={'/Digit'} id='project-card'>
-                            <div id='project-block'>
-                            <Card.Title>Digit Recognition</Card.Title>
-                            <Card.Body>A trained neural network to recongize hand writing digit</Card.Body>
-                            </div>
+                
+                    <Col md={6} lg={6}>
+                        <Card as={Link} to={'/Digit'} className="h-100 shadow-sm text-decoration-none border-0 project-card-hover">
+                            <Card.Body className="d-flex flex-column justify-content-center text-center p-5">
+                                <Card.Title className="fs-3 mb-3 fw-bold text-dark">Digit Recognition</Card.Title>
+                                <Card.Text className="text-muted fs-5">A trained neural network to recognize handwriting digits</Card.Text>
+                            </Card.Body>
                         </Card>
                     </Col>
-                    <Col>                        
-                        <Card as={Link} id='project-card'>
-                            <div id='project-block'>
-                            <Card.Title>Working Project</Card.Title>
-                            <Card.Body>The project will come out soon...</Card.Body>
-                            </div>
+                    
+                    <Col md={6} lg={6}>                        
+                        <Card className="h-100 shadow-sm text-decoration-none border-0 project-card-hover">
+                            <Card.Body className="d-flex flex-column justify-content-center text-center p-5">
+                                <Card.Title className="fs-3 mb-3 fw-bold text-dark">Coming Soon</Card.Title>
+                                <Card.Text className="text-muted fs-5">New project will be released shortly...</Card.Text>
+                            </Card.Body>
                         </Card>
                     </Col>
                 </Row>
